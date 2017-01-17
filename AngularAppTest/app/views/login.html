@@ -1,0 +1,25 @@
+<div class="container content mar-v-md">
+	<div class="row text-center">
+		<div class="col-md-offset-4 col-md-4">
+			<div class="bg-soft1 pad-v-xs borde borderradius mar-v-md">
+				<h2 class="bg-soft1 pad-v-xs borde borderradius">
+					<span class="glyphicon glyphicon-user"></span> Sign In
+				</h2>
+				<form>
+					<div class="form-group pad-v-xs">
+						<input type="text" class="form-control" placeholder="Username" ng-model="user.username" ng-required="true">
+					</div>
+					<div class="form-group pad-v-xs">
+						<input type="password" class="form-control" placeholder="Password" ng-model="user.password" ng-required="true">
+					</div>
+						<p class="pull-left mar-h-xs mar-v-xs"><a href="/addUser">You don't have an account? Sign Up!</a></p>
+
+					<div class="form-group pull-right pad-h-md">
+						<button type="submit" class="btn btn-default" ng-click="login(user)">Ok</button>
+					</div>
+					<div class="clearfix"></div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

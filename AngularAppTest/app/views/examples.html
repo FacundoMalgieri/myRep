@@ -1,0 +1,90 @@
+<div class="row mar-b-none">
+	<div class="col-md-offset-1 col-md-5 bg-soft pad-v-md pad-h-md mar-v-xs borde">
+		<h3>Example 1</h3>
+			<p>Write something: <input type="text" class="tdark" ng-model="name"></p>
+			<h3 ng-bind="name"></h3>
+		<hr>
+		<h3>Example 2</h3>
+			<div ng-init="firstName='John'">
+				<p>The preloaded name is <span ng-bind="firstName"></span></p>
+			</div>
+		<hr>
+			<h3>Example 3</h3>	
+			<p>This is an angular expression: {{5 + 5}}</p>
+		<hr>
+			<h3>Example 4</h3>	
+				<p>Try to change the names.</p>
+				<div>
+					First Name: <input type="text" ng-model="firstName" class="pad-v-xs mar-v-xs"><br>
+					Last Name: <input type="text" ng-model="lastName" class="pad-v-xs mar-v-xs"><br>
+					<br>
+					Full Name: {{firstName + " " + lastName}}
+				</div>
+		<hr>
+		<h3>Example 5</h3>
+			<p>Change the value of the input field:</p>
+			<div ng-init="myCol='gold'">
+				<input style="background-color:{{myCol}}" ng-model="myCol" value="{{myCol}}" class="pad-v-xs mar-v-xs">
+			</div>
+		<hr>
+		<h3>Example 6</h3>
+		<p>Dolar to Pesos converter:</p>
+			<div ng-init="quantity=1;cost=15.3">
+				<input ng-model="quantity" value="{{quantity}}" class="pad-v-xs mar-v-xs">
+				<p>Total in Pesos: ${{ quantity * cost }}</p>
+			</div>
+		<hr>
+		<h3> Example 7</h3>
+		<p>Person Objet</p>
+			First Name: <input type="text" ng-model="person.firstName" class="pad-v-xs mar-v-xs"><br>
+			Last Name: <input type="text" ng-model="person.lastName" class="pad-v-xs mar-v-xs"><br>
+			<div ng-init="person={firstName:'John',lastName:'Doe'}">
+				<p>The name is {{person.firstName + " " + person.lastName }}</p>
+			</div>					
+	</div> <!--COL END-->
+	<div class="col-md-5 bg-soft pad-v-md pad-h-md mar-l mar-v-xs borde">
+		<h3>Example 8</h3>
+		<p>Array</p>
+			Select a position number: <input type="number" ng-init="i=0" ng-model="i" class="pad-v-xs mar-v-xs" value="{{i}}"><br>
+			<br>
+				<div ng-init="points=['HOLA',15,19,2,40]">
+				<p>The [{{i}}] key contains the value: {{ points[i] }}</p>
+				<ul>
+					<li ng-repeat="(key, value) in points">
+						Key:{{key}}  Value:{{value}};
+					</li>
+				</ul>
+			</div> 
+		<hr>	
+		<h3>Example 9</h3>
+		<p>Validations</p>	
+			<form ng-app="" name="myForm" ng-init="myText = 'post@myweb.com'">
+				Email:<input class="pad-v-xs mar-v-xs" type="email" name="myAddress" ng-model="myText" required>
+				<p>Edit the e-mail address, and try to change the status.</p>
+				<h2>Status</h2>
+				<p>Valid: {{myForm.myAddress.$valid}} (if true, the value meets all criteria).</p>
+				<p>Dirty: {{myForm.myAddress.$dirty}} (if true, the value has been changed).</p>
+				<p>Touched: {{myForm.myAddress.$touched}} (if true, the field has been in focus).</p>
+			</form>
+		<hr>
+		<h3>Example 10</h3>
+		<p>Validations</p>		
+			<style>
+				input.ng-invalid {
+				    background-color: red;
+			}
+			</style>
+			<form name="myForm1">
+			    Enter your name:
+			    <input name="myName1" ng-model="myText1" required>
+			</form><br>
+			<p>Edit the text field and it will get/lose classes according to the status.</p>
+			<p><b>Note:</b> A text field with the "required" attribute is not valid when it is empty.
+			(ng-empty | ng-not-empty | ng-touched | ng-untouched | ng-valid | ng-invalid | ng-dirty | ng-pending | ng-pristine)
+			</p>
+		<hr>
+		<h3>Example 11</h3>
+		<p>Click on the Name to run the "changeName" function.</p>	
+		<h2 class="borde text-center pad-v-md" ng-click="changeName()">{{ firstname }}</h2>
+	</div><!--COL END-->
+</div><!--ROW END-->
