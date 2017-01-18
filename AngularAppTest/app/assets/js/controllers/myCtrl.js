@@ -1,12 +1,18 @@
-app.controller('myCtrl', ['$scope', function($scope) {
-	$scope.firstName = "John";
+app.controller('myCtrl', function($scope, sessionService, userService) {
+	$scope.firstName = "Facu";
 	$scope.lastName  = "Doe";
-	$scope.firstname = "John";
-  
+	
+	userService.username().then(function(data) {	
+		$scope.username = data;
+	});  	
+	
+	$scope.firstname = "Facu";
     $scope.changeName  = function() {
     	$scope.firstname = "Nelly";
-    };
-
+    }
+    $scope.logout = function() {
+		userService.logout();
+	}
 	$scope.apps = [ 
 	  { 
 	    icon: 'assets/imgs/background5.jpg', 
@@ -50,4 +56,4 @@ app.controller('myCtrl', ['$scope', function($scope) {
 	  },
 	  
   ];
-}]);
+});

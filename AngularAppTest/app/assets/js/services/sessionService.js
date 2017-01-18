@@ -1,16 +1,15 @@
 'use strict';
 
-app.factory('sessionService', ['$http', function($http){
+app.factory('sessionService', function($http){
 	return{
-		set:function(key,value){
+		set:function(key,value) {
 			return sessionStorage.setItem(key,value);
 		},
-		get:function(){
+		get:function(key) {
 			return sessionStorage.getItem('id');
 		},
-		destroy:function(){
-			$http.post('data/destroy_session.php');
-			return sessionStorage.removeItem();
+		destroy:function(key) {
+			return sessionStorage.removeItem(key);
 		}
-	};
-}])
+	}	
+})

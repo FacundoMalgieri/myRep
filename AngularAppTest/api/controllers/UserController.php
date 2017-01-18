@@ -29,11 +29,25 @@ class UserController {
 		$array = $this->users->validate($data);
 		$array = array_shift($array);
 		session_start();
-		$_SESSION['id'] = $array['id_user'];
-		$jList = json_encode($array);
-		echo $jList;
+		$_SESSION['id_user'] = $array['id_user'];
+		$_SESSION['username'] = $array['username'];
+		$_SESSION['password'] = $array['password'];
+		echo $_SESSION['id_user'];
 	}
 
+	public function logout() {
+		session_start();
+		session_destroy();
+		echo "user logged out";
+	}
+
+	public function data() {
+		session_start();
+		if(isset($_SESSION['username'])) {
+			echo $_SESSION['username'];
+		}
+	}
+	
 	public function delete() {
 		$data = json_decode(utf8_encode(file_get_contents("php://input")), true);
 		$this->users->delete($data['id_user']);

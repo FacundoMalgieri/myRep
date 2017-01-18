@@ -18,7 +18,7 @@ app.controller('userCtrl', function($scope, userService) {
 	}
 });
 
-app.controller('loginCtrl', function ($scope, userService) {
+app.controller('loginCtrl', function ($scope, $location, userService) {
 	$scope.login = function(user) {
 		userService.login(user);
 	};

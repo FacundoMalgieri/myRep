@@ -28,7 +28,7 @@ h3        { text-align: center; }
 footer    { overflow: hidden; }
 button    { transition: .5s ease; }
 table, th { text-align: center; border-collapse: unset; }
-ul        { list-style-type: none; }
+ul        { list-style-type: none; text-align: center; }
 input     { color: #000; }
 
 /* Backgrounds */
@@ -198,7 +198,8 @@ b, .fuente    { font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; }
     color: #BCB4B4;
     text-align: center;
 }
-.dropdown-menu { background-color: rgba(0, 0, 0, 0.9); } 
+.dropdown-menu > li > a { color: #FFF; }
+.dropdown-menu { background-color: rgba(0, 0, 0, 0.9); min-width: 0; } 
 .dropdown-menu li:hover .sub-menu { visibility: visible; }
 .dropdown:hover .dropdown-menu { display: block; }
 .dropdown-menu .sub-menu { visibility: hidden; }

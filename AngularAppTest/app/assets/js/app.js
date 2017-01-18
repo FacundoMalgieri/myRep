@@ -10,6 +10,9 @@ app.config(['$httpProvider', function($httpProvider) {
 
 app.constant('URL_BASE', 'http://localhost/AngularAppTest/');
 //app.constant('URL_BASE', 'http://rk000697.ferozo.com/facundo/AngularAppTest/');
+app.constant('USER', 'api/user/');
+app.constant('POST', 'api/post/');
+
 app.config(function ($routeProvider, $locationProvider) {
   $routeProvider
     .when('/', {
@@ -57,8 +60,12 @@ app.config(function ($routeProvider, $locationProvider) {
 app.run(function($rootScope, $location, userService) {
     var routesPermission = ['/','/posts','/allPosts','/homeInclude','/userList','/directives','/examples']; 
     $rootScope.$on('$routeChangeStart', function() {
-        if(routesPermission.indexOf($location.path()) != -1 && !userService.islogged()) {            
-            $location.path('/login');
+        if(routesPermission.indexOf($location.path()) != -1 ) {            
+            userService.islogged().then(function(response) {
+              if(!response.data) {
+                $location.path('/login');
+              }      
+            })
         }
     });
 });       
