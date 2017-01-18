@@ -1,7 +1,7 @@
 app.factory('postService', function($http, $location, URL_BASE, $q) { 
 	return {
 		addPost:function(content) {
-			$http.post(URL_BASE + 'api/post/addPost', content)
+			$http.post(URL_BASE + POST + 'addPost', content)
 			.success(function() {
 	    		alert('Post added');
 	    		$location.path('/allPosts');
@@ -9,7 +9,7 @@ app.factory('postService', function($http, $location, URL_BASE, $q) {
 		},
 	 	all:function() {
  		    var deferred = $q.defer();			
-	 		$http.get(URL_BASE + 'api/post/allPosts')
+	 		$http.get(URL_BASE + POST + 'allPosts')
 	 		.then(function(response) {
 	 			console.log('Fetching data...');
         		posts = response.data;
@@ -19,7 +19,7 @@ app.factory('postService', function($http, $location, URL_BASE, $q) {
     		return $q.when(posts);
  		},
  		delete:function(post) {
- 			$http.post(URL_BASE + 'api/post/delete', post)
+ 			$http.post(URL_BASE + POST + 'delete', post)
 			.success(function() {
 	    		alert('Post deleted');
 	 		})

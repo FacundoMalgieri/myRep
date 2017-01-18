@@ -12,43 +12,45 @@ app.constant('URL_BASE', 'http://localhost/AngularAppTest/');
 //app.constant('URL_BASE', 'http://rk000697.ferozo.com/facundo/AngularAppTest/');
 app.constant('USER', 'api/user/');
 app.constant('POST', 'api/post/');
+app.constant('IMGS', 'assets/imgs/');
+app.constant('VIEWS', 'views/')
 
-app.config(function ($routeProvider, $locationProvider) {
+app.config(function ($routeProvider, $locationProvider, VIEWS) {
   $routeProvider
     .when('/', {
-    templateUrl: "views/home.html",
+    templateUrl: VIEWS + "home.html",
       controller: "myCtrl"
     })
     .when('/homeInclude', {
-    templateUrl: "views/homeInclude.html",
+    templateUrl: VIEWS + "homeInclude.html",
       controller: "myCtrl"
     })
     .when('/addUser', {
-      templateUrl: "views/addUser.html",
+      templateUrl: VIEWS + "addUser.html",
       controller: "userCtrl"
     })
     .when('/login', {
-      templateUrl: "views/login.html",
+      templateUrl: VIEWS + "login.html",
       controller: "loginCtrl"
     })
     .when('/posts', {
-      templateUrl: "views/posts.html",
+      templateUrl: VIEWS + "posts.html",
       controller: "myCtrl"
     })
     .when('/allPosts', {
-	    templateUrl: "views/allPosts.html",
+	    templateUrl: VIEWS + "allPosts.html",
       controller: "myCtrl"
     })
     .when('/examples', {
-      templateUrl: "views/examples.html",
+      templateUrl: VIEWS + "examples.html",
       controller: "myCtrl"
     })  
     .when('/directives', {
-	    templateUrl: "views/directives.html",
+	    templateUrl: VIEWS + "directives.html",
       controller: "myCtrl"
     })
     .when('/userList', {
-      templateUrl: "views/userList.html",
+      templateUrl: VIEWS + "userList.html",
       controller: "userList"
     })
     .otherwise({
