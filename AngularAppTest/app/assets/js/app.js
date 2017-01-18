@@ -60,7 +60,7 @@ app.config(function ($routeProvider, $locationProvider, VIEWS) {
 });  
 
 app.run(function($rootScope, $location, userService) {
-    var routesPermission = ['/','/posts','/allPosts','/homeInclude','/userList','/directives','/examples']; 
+    var routesPermission = ['/posts','/allPosts','/homeInclude','/userList','/directives','/examples']; 
     $rootScope.$on('$routeChangeStart', function() {
         if(routesPermission.indexOf($location.path()) != -1 ) {            
             userService.islogged().then(function(response) {

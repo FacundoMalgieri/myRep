@@ -1,4 +1,4 @@
-app.factory('postService', function($http, $location, URL_BASE, $q) { 
+app.factory('postService', function($http, $location, URL_BASE, POST, $q) { 
 	return {
 		addPost:function(content) {
 			$http.post(URL_BASE + POST + 'addPost', content)

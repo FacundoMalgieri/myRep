@@ -1,8 +1,10 @@
-app.controller('postCtrl', function($scope, postService) {
+app.controller('postCtrl', function($scope, postService, userService) {
 	$scope.addPost = function(content) {
-		var content = {text: $scope.postSmth, title: $scope.title};
-		console.log(content);
-		postService.addPost(content);
+		userService.username().then(function(data) {
+			var content = {text: $scope.postSmth, title: $scope.title, posted: data};
+			console.log(content);
+			postService.addPost(content);
+		})
 	};
 });
 

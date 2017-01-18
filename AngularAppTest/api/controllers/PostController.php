@@ -13,7 +13,7 @@ class PostController {
 	
 	public function addPost($data) {
 		$data = json_decode(utf8_encode(file_get_contents("php://input")), true);
-		$new = new Post(null, $data['text'], null, $data['title']);
+		$new = new Post(null, $data['text'], null, $data['title'], $data['posted']);
 		$this->posts->addPost($new);	 			
 	}
 

@@ -50,7 +50,7 @@
 								</li>          
 								<li ><a href="examples" class="cl-light">Examples<span style="font-size:16px;" class="pad-h-xs pull-right glyphicon glyphicon-th-list"></span></a></li>        
 								<li ><a href="directives" class="cl-light">Directives<span style="font-size:16px;" class="pad-h-xs pull-right glyphicon glyphicon-tags"></span></a></li>        
-								<li ><a href="" ng-click="logout()" class="cl-light"><p ng-show="username!=undefined" class="font-up" ng-model="username">{{username}}</p><span style="font-size:16px;" class="pad-h-xs pull-right glyphicon glyphicon-"></span></a></li>
+								<li ng-show="username!=undefined"><a href="" ng-click="logout()" class="font-up cl-light text-center" ng-model="username">{{username}}</a></li>
 							</ul>
 						</div>
 					</div>

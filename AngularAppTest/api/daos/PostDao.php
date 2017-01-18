@@ -15,9 +15,8 @@ Class PostDao extends Connection {
 	}
 
 	public function addPost($value) {
-		$sql 	= "INSERT INTO " . $this->table . "(text, date, title) values(:text, NOW(), :title)";
+		$sql 	= "INSERT INTO " . $this->table . "(text, date, title, posted) values(:text, NOW(), :title, :posted)";
 		$params = $value->toArray(array('date','id_post'));
-		pre($params);
 		$this->execPDO($sql, $params);
 	}
 	
@@ -37,7 +36,7 @@ Class PostDao extends Connection {
 	
 	public function mapear($value) { 
 		$value = array_map(function($p){	
-			return new Post($p['id_post'], $p['text'], $p['date'], $p['title']);
+			return new Post($p['id_post'], $p['text'], $p['date'], $p['title'], $p['posted']);
 			}, $value); 
 		return $value;
 	}
@@ -56,8 +55,7 @@ Class PostDao extends Connection {
 		return $stmt;
 	}
 
-	public function serializeAll($data)
-	{
+	public function serializeAll($data)	{
 		$serialized = json_encode($data);
 		return $serialized;
 	}
